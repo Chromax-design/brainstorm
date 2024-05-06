@@ -1,7 +1,13 @@
-import { Inter } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar/Navbar";
+import Footer from "@/components/Footer/Footer";
+import Header from "@/components/Navbar/Header";
 
-const inter = Inter({ subsets: ["latin"] });
+const openSans = Open_Sans({
+  subsets: ["latin"],
+  weight: [ "300", "400", "500", "600", "700", "800"],
+});
 
 export const metadata = {
   title: "Create Next App",
@@ -11,7 +17,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${openSans.className} bg-gray-50`}>
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

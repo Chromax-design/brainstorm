@@ -61,13 +61,13 @@ export default function MobileNav() {
                 height={50}
               />
             </Link>
-            <button className="uppercase text-sm font-semibold text-white">
+            <button className="uppercase  text-xs sm:text-sm font-semibold text-white">
               subscribe
             </button>
           </div>
         </Container>
       </nav>
-
+      <div className={`fixed top-0 left-0 w-full bg-black opacity-50 h-[100vh] ${isOpen ? 'translate-y-0' : '-translate-y-full'} transition`}></div>
       <div className={`fixed p-5 w-[350px] bg-gray-200 top-0 left-0 h-[100vh] overflow-auto z-10  ${isOpen ? 'translate-y-0' : '-translate-y-full'} transition`}>
         <div className="mt-20">
           <ul className="flex flex-col gap-10">

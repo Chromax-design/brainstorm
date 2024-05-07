@@ -4,10 +4,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 const socials = [
-  { link: "", icon: "facebook.svg", alt:'facebook icon' },
-  { link: "", icon: "twitter.svg", alt: 'twitter icon' },
-  { link: "", icon: "whatsapp.svg", alt: 'whatsapp icon' },
-  { link: "", icon: "instagram.svg", alt: 'instagram icon' },
+  { link: "", icon: "facebook.svg", alt: "facebook icon" },
+  { link: "", icon: "twitter.svg", alt: "twitter icon" },
+  { link: "", icon: "whatsapp.svg", alt: "whatsapp icon" },
+  { link: "", icon: "instagram.svg", alt: "instagram icon" },
 ];
 
 const Links = [
@@ -55,42 +55,23 @@ const Links = [
 
 export default function Footer() {
   return (
-    <footer className="bg-black py-20 text-gray-200 px-3">
+    <footer className="bg-black py-10 text-gray-100 px-3">
       <Container>
-        <div className="flex gap-10 items-center max-lg:justify-center">
-          <Link href={"/"}>
-            <Image
-              src={"/assets/logo.png"}
-              width={150}
-              height={50}
-              alt="brainstorm logo"
-              className="p-1"
-            />
-          </Link>
-          <div className="flex gap-5">
-            {socials.map((social, i) => (
-              <Link
-                href={social.link}
-                key={i}
-                className=" hover:scale-105 transition"
-              >
-                <Image
-                  src={`/assets/icons/${social.icon}`}
-                  alt={social.alt}
-                  width={30}
-                  height={30}
-                />
-              </Link>
-            ))}
-          </div>
-        </div>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-2 max-lg:justify-center mt-12 gap-10">
+        <Link href={"/"} className="relative w-36 h-14 block max-lg:mx-auto">
+          <Image
+            src={"/assets/logo.png"}
+            alt="brainstorm logo"
+            className="p-1 w-auto h-auto"
+            fill
+          />
+        </Link>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 max-lg:justify-center mt-6 gap-10">
           <div className="space-y-4 max-lg:flex max-lg:items-center max-lg:flex-col">
             <h2 className="text-2xl capitalize font-bold">
               get our wellness newsletter
             </h2>
-            <p className=" font-medium max-w-md max-lg:text-center">
+            <p className="max-sm:text-sm font-medium max-w-md max-lg:text-center">
               Filter out the noise and nurture your inbox with health and
               wellness advice that’s inclusive and rooted in medical expertise.
             </p>
@@ -104,6 +85,22 @@ export default function Footer() {
                 sign up
               </button>
             </form>
+            <div className="flex gap-7">
+              {socials.map((social, i) => (
+                <Link
+                  href={social.link}
+                  key={i}
+                  className=" hover:scale-105 transition w-6 h-6 relative"
+                >
+                  <Image
+                    src={`/assets/icons/${social.icon}`}
+                    alt={social.alt}
+                    fill
+                    className="w-auto h-auto"
+                  />
+                </Link>
+              ))}
+            </div>
           </div>
           <div className="flex justify-center gap-14 lg:grid lg:grid-cols-[200px,1fr] max-lg:justify-center">
             <ul className="space-y-5">

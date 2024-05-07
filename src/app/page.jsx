@@ -61,7 +61,7 @@ const posts = [
 
 export default function Home() {
   return (
-    <main className=" pt-[100px] pb-20 px-3 space-y-20">
+    <main className=" pt-[100px] pb-20 px-3 space-y-20" id="body">
       <section>
         <Container className={"space-y-5"}>
           <div className="grid lg:grid-cols-[2fr,1fr] gap-8">
@@ -79,7 +79,7 @@ export default function Home() {
                   relationship
                 </span>
                 <Link href={""}>
-                  <h2 className=" font-semibold text-3xl capitalize text-darkest hover:text-dark">
+                  <h2 className=" font-semibold text-xl sm:text-3xl capitalize text-darkest hover:text-dark">
                     How to Bust Down Your Emotional Walls and Get More Intimate
                   </h2>
                 </Link>

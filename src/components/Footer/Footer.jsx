@@ -55,18 +55,26 @@ const Links = [
 
 export default function Footer() {
   return (
-    <footer className="bg-black py-10 text-gray-100 px-3">
+    <footer className="bg-black pt-14 pb-10 text-gray-100 px-3">
       <Container>
-        <Link href={"/"} className="relative w-36 h-14 block max-lg:mx-auto">
-          <Image
-            src={"/assets/logo.png"}
-            alt="brainstorm logo"
-            className="p-1 w-auto h-auto"
-            fill
-          />
-        </Link>
+        <div className="flex gap-7 max-lg:justify-center">
+          {socials.map((social, i) => (
+            <Link
+              href={social.link}
+              key={i}
+              className=" hover:scale-110 transition w-6 h-6 sm:w-7 sm:h-7 relative"
+            >
+              <Image
+                src={`/assets/icons/${social.icon}`}
+                alt={social.alt}
+                fill
+                className="w-auto h-auto"
+              />
+            </Link>
+          ))}
+        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 max-lg:justify-center mt-6 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 max-lg:justify-center mt-10 gap-10">
           <div className="space-y-4 max-lg:flex max-lg:items-center max-lg:flex-col">
             <h2 className="text-2xl capitalize font-bold">
               get our wellness newsletter
@@ -85,22 +93,6 @@ export default function Footer() {
                 sign up
               </button>
             </form>
-            <div className="flex gap-7">
-              {socials.map((social, i) => (
-                <Link
-                  href={social.link}
-                  key={i}
-                  className=" hover:scale-105 transition w-6 h-6 relative"
-                >
-                  <Image
-                    src={`/assets/icons/${social.icon}`}
-                    alt={social.alt}
-                    fill
-                    className="w-auto h-auto"
-                  />
-                </Link>
-              ))}
-            </div>
           </div>
           <div className="flex justify-center gap-14 lg:grid lg:grid-cols-[200px,1fr] max-lg:justify-center">
             <ul className="space-y-5">

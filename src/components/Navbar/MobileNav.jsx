@@ -25,7 +25,7 @@ export const Links = [
 ];
 
 export default function MobileNav() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
@@ -38,7 +38,7 @@ export default function MobileNav() {
             <button className="flex items-center gap-3" onClick={handleClick}>
               <div className="w-7 h-7 relative">
                 <Image
-                  src={`/assets/icons/${isOpen ? 'close.svg': 'menu.svg'}`}
+                  src={`/assets/icons/${isOpen ? "close.svg" : "menu.svg"}`}
                   fill
                   alt="menu icon"
                   className="w-auto h-auto"
@@ -61,24 +61,43 @@ export default function MobileNav() {
                 height={50}
               />
             </Link>
-            <button className="uppercase  text-xs sm:text-sm font-semibold text-white">
+            <button className="uppercase text-xs sm:text-sm font-semibold text-white">
               subscribe
             </button>
           </div>
         </Container>
       </nav>
-      <div className={`fixed top-0 left-0 w-full bg-black opacity-50 h-[100vh] ${isOpen ? 'translate-y-0' : '-translate-y-full'} transition`}></div>
-      <div className={`fixed p-5 w-[350px] bg-gray-200 top-0 left-0 h-[100vh] overflow-auto z-10  ${isOpen ? 'translate-y-0' : '-translate-y-full'} transition`}>
+      <div
+        className={`fixed top-0 left-0 w-full bg-black opacity-50 h-[100vh] ${
+          isOpen ? "translate-y-0" : "-translate-y-full"
+        } transition`}
+      ></div>
+      <div
+        className={`fixed w-full sm:w-3/4 bg-gray-200 top-0 left-0 h-[100vh] overflow-auto z-10  ${
+          isOpen ? "translate-y-0" : "-translate-y-full"
+        } transition`}
+      >
         <div className="mt-20">
-          <ul className="flex flex-col gap-10">
+          <form action="" className="flex p-6 border-b border-gray-500">
+            <input
+              type="text"
+              placeholder="search brainstorm"
+              className="flex-1 placeholder:font-semibold placeholder:capitalize px-4 py-3 focus:border-none focus:outline-none text-black"
+            />
+            <button className="px-4 py-3 bg-dark text-white uppercase font-semibold">
+              GO
+            </button>
+          </form>
+          <ul className="flex flex-col">
             {Links.map((link, i) => (
-              <Link
-                href={link.path}
-                className=" capitalize text-lg font-semibold"
-                key={i}
-              >
-                {link.title}
-              </Link>
+              <div key={i}>
+                <Link
+                  href={link.path}
+                  className=" capitalize text-lg font-semibold p-6 block border-b border-gray-500"
+                >
+                  {link.title}
+                </Link>
+              </div>
             ))}
           </ul>
         </div>
